@@ -1,4 +1,4 @@
-# GODOT---Fps-shooter-recoil-system
+# GODOT FPS Recoil System
 Godot at the moment doesnt have any tutorials about recoil, so I decided to make a project that the community and I will make together so that everyone can use it! 
 The goal for this repo is to create a usable and satisfiing recoil system, that includes recoil increasing, recoil dampening and even more, the recoil should be similer to common fps shooters like call of duty, and battlefield
 , even though they are different games I want to create a system that can be changed and tuned to be both or unique!
