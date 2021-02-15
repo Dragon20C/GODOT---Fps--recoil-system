@@ -14,13 +14,22 @@ To-do list:
   
   snipers - Not done
   
+  
  Requests:
  I would like help from the community from people who have experiense making fps´s and recoil systems
+ 
+ 
  
  What have I done?
  I have provided a simple project that should make it easier for anyone to modify,I have modeled a gun and added some basic recoil,I would like people to play
  around and change things and also if you think you know a better way of creating such recoil systems then please go ahead and message me and I would be happy to 
  commit it into the project.
+ 
+ 
+ 
+ 
+ 
+ 
  
  License:
  Currently the MIT License is used, meaning anything created in this project is free to use, and can be modified and changed to your liking!
