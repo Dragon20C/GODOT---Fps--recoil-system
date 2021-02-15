@@ -2,6 +2,7 @@
 Introduction:
 Hello all! In this github repo I want too create a recoil system that will be able to have similer recoil to call of duty black ops 2, with help from the community,I am no expert programmer but I am still learning, I have been using Godot for around 4 - 5 months now and I have made small noncomplete games, My goal is to make a fps to play with my friends but I need help from you guys, the community.
 
+
 To-do list:
   
   recoil spread - Not done
