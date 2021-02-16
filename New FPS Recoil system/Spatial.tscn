@@ -153,6 +153,18 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="Mode" type="Label" parent="UI/Control"]
+margin_left = 1400.0
+margin_top = 499.0
+margin_right = 1553.0
+margin_bottom = 518.0
+custom_fonts/font = SubResource( 6 )
+custom_colors/font_color = Color( 0, 0.0627451, 1, 1 )
+text = "Mode : NILL"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="Info" type="Label" parent="UI/Control"]
 margin_left = 703.383
 margin_top = 149.502
@@ -161,6 +173,20 @@ margin_bottom = 168.502
 custom_fonts/font = SubResource( 7 )
 custom_colors/font_color = Color( 0, 0.00392157, 1, 1 )
 text = "Press E to clear recoil marks"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Info2" type="Label" parent="UI/Control"]
+margin_left = 692.044
+margin_top = 165.0
+margin_right = 927.044
+margin_bottom = 184.0
+custom_fonts/font = SubResource( 7 )
+custom_colors/font_color = Color( 0, 0.00392157, 1, 1 )
+text = "Press 1 or 2 to change fire mode"
 align = 1
 valign = 1
 __meta__ = {

@@ -5,11 +5,11 @@ var focus = true
 var damage = 60
 var recoil = false
 var shoot = false
-var recoil_amount = 1.5
+var recoil_amount = 0.5
 var bullets = 0
-var ROF = 0.15
-var recoil_speed = 20
-
+var ROF = 0.12
+var recoil_speed = 25
+var mode = "auto"
 onready var camera = $Head/Camera
 onready var famas = $Head/Hand/Famas/AnimationPlayer
 onready var recoilmark = preload("res://RecoilMark.tscn")
@@ -20,6 +20,7 @@ onready var rate_of_fire = get_node("../UI/Control/Rate_of_fire")
 onready var bullets_shot = get_node("../UI/Control/Bullets_shot")
 onready var recoil_speedL = get_node("../UI/Control/Recoil_speed")
 onready var recoil_amountL = get_node("../UI/Control/Recoil_amount")
+onready var modeL = get_node("../UI/Control/Mode")
 
 func _input(event):
 		if event is InputEventMouseMotion:
@@ -33,9 +34,13 @@ func _process(delta):
 	bullets_shot.set_text("Bullets_shot : " + str(bullets))
 	recoil_speedL.set_text("Recoil_speed : " + str(recoil_speed))
 	recoil_amountL.set_text("Recoil_amount : " + str(recoil_amount))
+	modeL.set_text("Mode : " + str(mode))
 	
-	print(rand_range(-5,5))
-	
+	if Input.is_action_just_pressed("1"):
+		mode = "auto"
+	elif Input.is_action_just_pressed("2"):
+		mode = "single"
+		
 	if Input.is_action_just_pressed("ui_cancel"):
 		focus = !focus
 		get_tree().quit()
@@ -53,19 +58,27 @@ func _physics_process(delta):
 	else:
 		$Head/Hand.transform.origin = $Head/Hand.transform.origin.linear_interpolate(Vector3(0.971,-0.79,-1.027),12 * delta)
 		camera.fov = lerp(camera.fov, 100, 5 * delta)
-	if Input.is_action_pressed("Click") and !shoot:		
-		shoot = true
-		recoil = true
-		bullets += 1
-		famas.seek(0,true)
-		famas.play("Firing")
-		var instanced_mark = recoilmark.instance()
-		if ray.is_colliding():
-			ray.get_collider().add_child(instanced_mark)
-			instanced_mark.global_transform.origin = ray.get_collision_point()
-		yield(get_tree().create_timer(ROF), "timeout")
-		shoot = false
-		recoil = false
+		
+	if Input.is_action_pressed("Click") and !shoot and mode == "auto":
+		shooting()
+	elif Input.is_action_just_pressed("Click") and !shoot and mode == "single":
+		shooting()
+	
 	if recoil:
 		$Head.rotation_degrees.x = lerp($Head.rotation_degrees.x,$Head.rotation_degrees.x + recoil_amount, recoil_speed * delta)
-		
+		rotation_degrees.y = lerp(rotation_degrees.y,rotation_degrees.y + rand_range(-0.5,0.5), recoil_speed * delta)
+
+func shooting():
+	shoot = true
+	recoil = true
+	bullets += 1
+	famas.seek(0,true)
+	famas.play("Firing")
+	var instanced_mark = recoilmark.instance()
+	if ray.is_colliding():
+		ray.get_collider().add_child(instanced_mark)
+		instanced_mark.global_transform.origin = ray.get_collision_point()
+	yield(get_tree().create_timer(ROF), "timeout")
+	shoot = false
+	recoil = false
+	
