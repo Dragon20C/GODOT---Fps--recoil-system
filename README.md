@@ -8,13 +8,13 @@ To-do list:
   
   recoil spread - Not done
   
-  automatic - partially done
+  automatic - Done
+  
+  single fire - Done
   
   semi-automatic - Not done
   
   shotgun - Not done
-  
-  single fire - Not done
   
   snipers - Not done
   
